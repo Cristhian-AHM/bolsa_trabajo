@@ -30,7 +30,7 @@
                     <div class="float-right">
                         
                     </div>
-                    <div class="text-value h4"><strong>{{number_format($total->totalcompra,0)}} (MES ACTUAL)</strong>
+                    <!-- <div class="text-value h4"><strong>{{number_format($total->totalcompra,0)}} (MES ACTUAL)</strong> -->
                     </div>
                     <div class="h3">Total de Ofertas</div>
                 </div>
@@ -49,7 +49,7 @@
                     <div class="float-right">
                         
                     </div>
-                    <div class="text-value h4"><strong>{{number_format($total->totalventa,0)}} (MES ACTUAL) </strong>
+                    <!-- <div class="text-value h4"><strong>{{number_format($total->totalventa,0)}} (MES ACTUAL) </strong> -->
                     </div>
                     <div class="h3">Estudiantes Postulados</div>
                 </div>
@@ -60,7 +60,7 @@
 
             </div>
         </div>
-        @if(sizeof($comprasmes) > 0)
+        <!-- @if(sizeof($comprasmes) > 0) -->
         <div class="col-md-4 grid-margin stretch-card">
             <div class="card  text-white bg-info">
     
@@ -69,7 +69,7 @@
                     <div class="float-right">
                         
                     </div>
-                    <div class="text-value h4"><strong>{{$comprasmes[0]->name}}</strong>
+                    <!-- <div class="text-value h4"><strong>{{$comprasmes[0]->name}}</strong> -->
                     </div>
                     <div class="h3">Carrera con mayor demanda</div>
                 </div>
@@ -77,7 +77,7 @@
     
             </div>
         </div>
-        @endif
+        <!-- @endif -->
     </div>
     
     @endforeach
