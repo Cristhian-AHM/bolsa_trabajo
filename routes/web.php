@@ -35,10 +35,10 @@ Route::resource('printers', 'PrinterController')->names('printers')->only([
     'index', 'update'
 ]);
 
-Route::resource('companies', CategoryController::class)->names('categories');
+Route::resource('categories', CategoryController::class)->names('categories');
 Route::resource('offers', OfferController::class)->names('offers');
-Route::resource('work_experience', ProductController::class)->names('products');
-Route::resource('students', ProviderController::class)->names('providers');
+Route::resource('products', ProductController::class)->names('products');
+Route::resource('providers', ProviderController::class)->names('providers');
 Route::resource('purchases', PurchaseController::class)->names('purchases');
 Route::resource('purchaseDetails', PurchaseDetailsController::class)->names('purchaseDetails');
 Route::resource('sales', SaleController::class)->names('sales');
@@ -56,6 +56,7 @@ Route::get('change_status/purchases/{purchase}', 'PurchaseController@change_stat
 Route::get('purchases/upload/{purchase}', 'PurchaseController@upload')->name('upload.purchases');
 
 Route::get('sales/pdf/{sale}', 'SaleController@pdf')->name('sales.pdf');
+Route::get('offers/pdf/{offer}', 'OfferController@pdf')->name('offers.pdf');
 Route::get('change_status/sales/{sale}', 'SaleController@change_status')->name('change.status.sales');
 Route::get('sales/print/{sale}', 'SaleController@print')->name('sales.print');
 

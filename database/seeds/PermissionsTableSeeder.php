@@ -77,177 +77,105 @@ class PermissionsTableSeeder extends Seeder
 
 
         Permission::create([
-            'name'=>'Navegar categorías',
+            'name'=>'Navegar compañías',
             'slug'=>'categories.index',
-            'description'=>'Lista y navega por todos los categorías del sistema.',
+            'description'=>'Lista y navega por todos las compañías del sistema.',
         ]);
         Permission::create([
-            'name'=>'Ver detalle de categoría',
+            'name'=>'Ver detalle de compañías',
             'slug'=>'categories.show',
-            'description'=>'Ver en detalle cada categoría del sistema.',
+            'description'=>'Ver en detalle cada compañía del sistema.',
         ]);
         Permission::create([
-            'name'=>'Edición de categorías',
+            'name'=>'Edición de compañías',
             'slug'=>'categories.edit',
-            'description'=>'Editar cualquier dato de un categoría del sistema.',
+            'description'=>'Editar cualquier dato de un compañía del sistema.',
         ]);
         Permission::create([
-            'name'=>'Creación de categorías',
+            'name'=>'Creación de compañías',
             'slug'=>'categories.create',
-            'description'=>'Crea cualquier dato de una categoría del sistema.',
+            'description'=>'Crea cualquier dato de una compañía del sistema.',
         ]);
         Permission::create([
-            'name'=>'Eliminar categorías',
+            'name'=>'Eliminar compañías',
             'slug'=>'categories.destroy',
-            'description'=>'Eliminar cualquier dato de una categoría del sistema.',
+            'description'=>'Eliminar cualquier dato de una compañía del sistema.',
         ]);
 
 
           
 
         Permission::create([
-            'name'=>'Navegar por productos',
+            'name'=>'Navegar por experiencia laboral',
             'slug'=>'products.index',
-            'description'=>'Lista y navega por todos los productos del sistema.',
+            'description'=>'Lista y navega por todos los experiencia laboral del sistema.',
         ]);
         Permission::create([
-            'name'=>'Ver detalle de producto',
+            'name'=>'Ver detalle de experiencia laboral',
             'slug'=>'products.show',
-            'description'=>'Ver en detalle cada producto del sistema.',
+            'description'=>'Ver en detalle cada experiencia laboral del sistema.',
         ]);
         Permission::create([
-            'name'=>'Edición de productos',
+            'name'=>'Edición de experiencia laboral',
             'slug'=>'products.edit',
-            'description'=>'Editar cualquier dato de un producto del sistema.',
+            'description'=>'Editar cualquier dato de un experiencia laboral del sistema.',
         ]);
         Permission::create([
-            'name'=>'Creación de productos',
+            'name'=>'Creación de experiencia laboral',
             'slug'=>'products.create',
-            'description'=>'Crea cualquier dato de un producto del sistema.',
+            'description'=>'Crea cualquier dato de un experiencia laboral del sistema.',
         ]);
         Permission::create([
-            'name'=>'Eliminar productos',
+            'name'=>'Eliminar experiencia laboral',
             'slug'=>'products.destroy',
-            'description'=>'Eliminar cualquier dato de un producto del sistema.',
+            'description'=>'Eliminar cualquier dato de un experiencia laboral del sistema.',
         ]);
 
 
            
         Permission::create([
-            'name'=>'Navegar por proveedores',
+            'name'=>'Navegar por estudiantes',
             'slug'=>'providers.index',
-            'description'=>'Lista y navega por todos los proveedores del sistema.',
+            'description'=>'Lista y navega por todos los estudiantes del sistema.',
         ]);
         Permission::create([
-            'name'=>'Ver detalle de proveedor',
+            'name'=>'Ver detalle de estudiante',
             'slug'=>'providers.show',
-            'description'=>'Ver en detalle cada proveedor del sistema.',
+            'description'=>'Ver en detalle cada estudiante del sistema.',
         ]);
         Permission::create([
-            'name'=>'Edición de proveedores',
+            'name'=>'Edición de estudiantes',
             'slug'=>'providers.edit',
-            'description'=>'Editar cualquier dato de un proveedor del sistema.',
+            'description'=>'Editar cualquier dato de un estudiante del sistema.',
         ]);
         Permission::create([
-            'name'=>'Creación de proveedores',
+            'name'=>'Creación de estudiantes',
             'slug'=>'providers.create',
-            'description'=>'Crea cualquier dato de un proveedor del sistema.',
+            'description'=>'Crea cualquier dato de un estudiante del sistema.',
         ]);
         Permission::create([
-            'name'=>'Eliminar proveedores',
+            'name'=>'Eliminar estudiantes',
             'slug'=>'providers.destroy',
-            'description'=>'Eliminar cualquier dato de un proveedor del sistema.',
-        ]);
-
-        
-        Permission::create([
-            'name'=>'Navegar por compras',
-            'slug'=>'purchases.index',
-            'description'=>'Lista y navega por todos los compras del sistema.',
-        ]);
-        Permission::create([
-            'name'=>'Ver detalle de compra',
-            'slug'=>'purchases.show',
-            'description'=>'Ver en detalle cada compra del sistema.',
-        ]);
-        Permission::create([
-            'name'=>'Creación de compras',
-            'slug'=>'purchases.create',
-            'description'=>'Crea cualquier dato de un compra del sistema.',
-        ]);
-
-         
-        Permission::create([
-            'name'=>'Navegar por ventas',
-            'slug'=>'sales.index',
-            'description'=>'Lista y navega por todos los ventas del sistema.',
-        ]);
-        Permission::create([
-            'name'=>'Ver detalle de venta',
-            'slug'=>'sales.show',
-            'description'=>'Ver en detalle cada venta del sistema.',
-        ]);
-        Permission::create([
-            'name'=>'Creación de ventas',
-            'slug'=>'sales.create',
-            'description'=>'Crea cualquier dato de un venta del sistema.',
+            'description'=>'Eliminar cualquier dato de un estudiante del sistema.',
         ]);
 
 
         Permission::create([
-            'name'=>'Descargar PDF reporte de compras',
-            'slug'=>'purchases.pdf',
-            'description'=>'Puede descargar todos los reportes de las compras en PDF.',
-        ]);
-
-
-        Permission::create([
-            'name'=>'Descargar PDF reporte de ventas',
+            'name'=>'Descargar PDF reporte de ofertas',
             'slug'=>'sales.pdf',
-            'description'=>'Puede descargar todos los reportes de las ventas en PDF.',
+            'description'=>'Puede descargar todos los reportes de las ofertas en PDF.',
         ]);
 
         Permission::create([
-            'name'=>'Imprimir boleta de venta',
+            'name'=>'Imprimir boleta de oferta',
             'slug'=>'sales.print',
-            'description'=>'Puede imprimir boletas de todas las ventas.',
+            'description'=>'Puede imprimir boletas de todas las ofertas.',
         ]);
 
         Permission::create([
-            'name'=>'er datos de la impresora',
-            'slug'=>'printers.index',
-            'description'=>'Navega por los datos de la impresora.',
-        ]);
-        Permission::create([
-            'name'=>'Edición de impresora',
-            'slug'=>'printers.edit',
-            'description'=>'Editar cualquier dato de la impresora.',
-        ]);
-
-
-
-
-        Permission::create([
-            'name'=>'Ver datos de la empresa',
-            'slug'=>'business.index',
-            'description'=>'Navega por los datos de la empresa.',
-        ]);
-        Permission::create([
-            'name'=>'Edición de empresa',
-            'slug'=>'business.edit',
-            'description'=>'Editar cualquier dato de la empresa.',
-        ]);
-
-        Permission::create([
-            'name'=>'Subir archivo de compra',
-            'slug'=>'upload.purchases',
-            'description'=>'Puede subir comprobantes de una compra.',
-        ]);
-
-        Permission::create([
-            'name'=>'Cambiar estado de producto',
+            'name'=>'Cambiar estado de experiencia laboral',
             'slug'=>'change.status.products',
-            'description'=>'Permite cambiar el estado de un producto.',
+            'description'=>'Permite cambiar el estado de un experiencia laboral.',
         ]);
 
         Permission::create([
@@ -257,21 +185,21 @@ class PermissionsTableSeeder extends Seeder
         ]);
 
         Permission::create([
-            'name'=>'Cambiar estado de venta',
+            'name'=>'Cambiar estado de oferta',
             'slug'=>'change.status.sales',
-            'description'=>'Permite cambiar el estado de un venta.',
+            'description'=>'Permite cambiar el estado de un oferta.',
         ]);
 
 
         Permission::create([
             'name'=>'Reporte por día',
             'slug'=>'reports.day',
-            'description'=>'Permite ver los reportes de ventas por día.',
+            'description'=>'Permite ver los reportes de ofertas por día.',
         ]);
         Permission::create([
             'name'=>'Reporte por fechas',
             'slug'=>'reports.date',
-            'description'=>'Permite ver los reportes por un rango de fechas de las ventas.',
+            'description'=>'Permite ver los reportes por un rango de fechas de las ofertas.',
         ]);
 
     }

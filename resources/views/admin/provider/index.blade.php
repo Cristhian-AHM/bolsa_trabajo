@@ -12,11 +12,13 @@
 
 @endsection
 @section('create')
-<li class="nav item d-none d-lg-flex">
-    <a class="nav-link" href="{{route('providers.create')}}">
-        <span class="btn btn-primary">+ Crear nuevo</span>
-    </a>
-</li>
+    @if(Auth::user()->name == 'Admin')
+        <li class="nav item d-none d-lg-flex">
+            <a class="nav-link" href="{{route('providers.create')}}">
+                <span class="btn btn-primary">+ Crear nuevo</span>
+            </a>
+        </li>
+    @endif
 @endsection
 @section('options')
 @endsection
@@ -71,30 +73,32 @@
                             </thead>
                             <tbody>
                                 @foreach ($providers as $provider)
-                                <tr>
-                                    <th scope="row">
-                                        <a href="{{route('providers.show',$provider)}}">{{$provider->name}}</a>
-                                    </th>
-                                    <td>{{$provider->lastname}}</td>
-                                    <td>{{$provider->phone}}</td>
-                                    <td>{{$provider->email}}</td>
-                                    <td>{{$provider->career}}</td>
-                                    <td>{{$provider->semester}}</td>
-                                    
-                                    <td style="width: 50px;">
-                                        {!! Form::open(['route'=>['providers.destroy',$provider], 'method'=>'DELETE']) !!}
+                                    @if(Auth::user()->name == 'Admin' || Auth::user()->id == $provider->user_id || Auth::user()->name == 'Empresa')
+                                        <tr>
+                                            <th scope="row">
+                                                <a href="{{route('providers.show',$provider)}}">{{$provider->name}}</a>
+                                            </th>
+                                            <td>{{$provider->lastname}}</td>
+                                            <td>{{$provider->phone}}</td>
+                                            <td>{{$provider->email}}</td>
+                                            <td>{{$provider->career}}</td>
+                                            <td>{{$provider->semester}}</td>
+                                            
+                                            <td style="width: 50px;">
+                                                {!! Form::open(['route'=>['providers.destroy',$provider], 'method'=>'DELETE']) !!}
 
-                                        <a class="jsgrid-button jsgrid-edit-button" href="{{route('providers.edit', $provider)}}" title="Editar">
-                                            <i class="far fa-edit"></i>
-                                        </a>
-                                        
-                                        <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
-                                            <i class="far fa-trash-alt"></i>
-                                        </button>
+                                                <a class="jsgrid-button jsgrid-edit-button" href="{{route('providers.edit', $provider)}}" title="Editar">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                                
+                                                <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </button>
 
-                                        {!! Form::close() !!}
-                                    </td>
-                                </tr>
+                                                {!! Form::close() !!}
+                                            </td>
+                                        </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

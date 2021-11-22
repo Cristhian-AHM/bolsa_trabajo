@@ -41,7 +41,7 @@
                                 <i class="fas fa-ellipsis-v"></i>
                             </a>
                             <div class="dropdown-menu dropdown-menu-right">
-                              <a href="{{route('sales.create')}}" class="dropdown-item">Registrar</a>
+                              <a href="{{route('offers.create')}}" class="dropdown-item">Registrar</a>
                             </div>
                         </div>  --}}
                     </div>
@@ -81,9 +81,9 @@
                         </div>
                         
                         <div class="col-12 col-md-2 text-center">
-                            <span>Total de ingresos: <b> </b></span>
+                            <span>Total de ofertas activas> <b> </b></span>
                             <div class="form-group">
-                                <strong>{{$total}}$</strong>
+                                <strong>{{$total}}</strong>
                             </div>
                         </div>
                     </div>
@@ -94,27 +94,33 @@
                             <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Nombre</th>
+                                    <th>Descripción</th>
                                     <th>Fecha</th>
-                                    <th>Total</th>
+                                    <th>Duración</th>
+                                    <th>Salario</th>
                                     <th>Estado</th>
                                     <th style="width:50px;">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($sales as $sale)
+                                @foreach ($offers as $offer)
                                 <tr>
                                     <th scope="row">
-                                        <a href="{{route('sales.show', $sale)}}">{{$sale->id}}</a>
+                                        <a href="{{route('offers.show', $offer)}}">{{$offer->id}}</a>
                                     </th>
+                                    <td>{{$offer->name}}</td>
+                                    <td>{{$offer->description}}</td>
                                     <td>
-                                        {{\Carbon\Carbon::parse($sale->sale_date)->format('d M y h:i a')}}
+                                        {{\Carbon\Carbon::parse($offer->application_date)->format('d M y h:i a')}}
                                     </td>
-                                    <td>{{number_format($sale->total)}}$</td>
-                                    <td>{{$sale->status}}</td>
+                                    <td>{{$offer->duration}}</td>
+                                    <td>{{$offer->salary}}</td>
+                                    <td>{{$offer->status}}</td>
                                     <td style="width: 50px;">
 
-                                        <a href="{{route('sales.pdf', $sale)}}" class="jsgrid-button jsgrid-edit-button unstyled-button"><i class="far fa-file-pdf"></i></a>
-                                        <a href="{{route('sales.show', $sale)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
+                                        <a href="{{route('offers.pdf', $offer)}}" class="jsgrid-button jsgrid-edit-button unstyled-button"><i class="far fa-file-pdf"></i></a>
+                                        <a href="{{route('offers.show', $offer)}}" class="jsgrid-button jsgrid-edit-button"><i class="far fa-eye"></i></a>
                                    
                                       
                                     </td>
@@ -125,7 +131,7 @@
                     </div>
                 </div>
                 {{--  <div class="card-footer text-muted">
-                    {{$sales->render()}}
+                    {{$offers->render()}}
                 </div>  --}}
             </div>
         </div>

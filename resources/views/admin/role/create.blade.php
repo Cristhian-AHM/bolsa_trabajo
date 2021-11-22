@@ -37,8 +37,8 @@
                       </div>
                       <div class="form-group">
                           <label for="slug">Slug</label>
-                          <input type="text"
-                            class="form-control" name="slug" id="slug" aria-describedby="helpId" placeholder="">
+                          <input type="text" 
+                            class="form-control hidden" name="slug" id="slug" value= "" aria-describedby="helpId" placeholder="">
                         </div>
                       <div class="form-group">
                         <label for="description">Descripción</label>

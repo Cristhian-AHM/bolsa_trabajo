@@ -49,11 +49,7 @@
                                         Datos de la compañía
                                     </a>
                                     <a type="button" class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" user="tab" aria-controls="profile">Ofertas publicadas</a>
-                                    <a type="button" class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" user="tab" aria-controls="messages">Historial de compras</a>
-                                    <a type="button" class="list-group-item list-group-item-action" id="list-sales-list" data-toggle="list" href="#list-sales" user="tab" aria-controls="sales">Historial de ventas</a>
-                                    {{-- <a type="button" class="list-group-item list-group-item-action" href="{{route('reports.category', $category)}}">Reporte de ventas</a> --}}
-                                    <a type="button" class="list-group-item list-group-item-action" href="{{route('products.create')}}">Registrar
-                                        estudiante</a>
+
                                 </div>
                             </div>
                         </div>
@@ -124,15 +120,37 @@
                                                         <tr>
                                                             <th>Nombre</th>
                                                             <th>Descripción</th>
-                                                            <th>Fecha de inicio</th>
+                                                            <th>Salario</th>
+                                                            <th>Duración</th>
                                                             <th>Fecha de terminación</th>
-                                                            <th>Posición</th>
-                                                            <th>Referencia</th>
                                                             <th>Estado</th>
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                       
+                                                        @foreach ($category->offers as $product)
+                                                        <tr>
+                                                            <th scope="row">
+                                                                <a href="{{route('offers.show',$product)}}">{{$product->name}}</a>
+                                                            </th>
+                                                            <td>{{$product->description}}</td>
+                                                            <td>{{$product->salary}}</td>
+                                                            <td>{{$product->duration}}</td>
+                                                            <td>{{$product->expiration_date}}</td>
+                                                            @if ($product->status == 'ACTIVE')
+                                                            <td>
+                                                                <a class="jsgrid-button btn btn-success" href="{{route('change.status.offers', $product)}}" title="Editar">
+                                                                    Activo <i class="fas fa-check"></i>
+                                                                </a>
+                                                            </td>
+                                                            @else
+                                                            <td>
+                                                                <a class="jsgrid-button btn btn-danger" href="{{route('change.status.offers', $product)}}" title="Editar">
+                                                                    Terminado <i class="fas fa-times"></i>
+                                                                </a>
+                                                            </td>
+                                                            @endif
+                                                        </tr>
+                                                        @endforeach
                                                     </tbody>
                                                     <tfoot>
                                                         <tr>

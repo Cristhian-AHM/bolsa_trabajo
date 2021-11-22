@@ -9,19 +9,21 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Offer\StoreRequest;
 use App\Http\Requests\Offer\UpdateRequest;
 
+use Barryvdh\DomPDF\Facade as PDF;
+
 class OfferController extends Controller
 {
 
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('can:offer.create')->only(['create','store']);
+        /*$this->middleware('can:offer.create')->only(['create','store']);
         $this->middleware('can:offer.index')->only(['index']);
         $this->middleware('can:offer.edit')->only(['edit','update']);
         $this->middleware('can:offer.show')->only(['show']);
         $this->middleware('can:offer.destroy')->only(['destroy']);
 
-        $this->middleware('can:change.status.offers')->only(['change_status']);
+        $this->middleware('can:change.status.offers')->only(['change_status']);*/
         
 
     }
@@ -102,7 +104,7 @@ class OfferController extends Controller
 
     public function change_status(Offer $offer){
         if ($offer->status == 'ACTIVE') {
-            $offer->update(['status'=>'DEACTIVATED']);
+            $offer->update(['status'=>'INACTIVE']);
             return redirect()->back();
         } else {
             $offer->update(['status'=>'ACTIVE']);
@@ -132,5 +134,15 @@ class OfferController extends Controller
             $offers = Offer::findOrFail($request->product_id);
             return response()->json($offers);
         }
+    }
+
+    public function pdf(Offer $offer){
+        $subtotal = 0 ;
+        $offerDetails = $offer->applicants;
+        foreach ($offerDetails as $offerDetail) {
+            $subtotal += 1;
+        }
+        $pdf = PDF::loadView('admin.offer.pdf', compact('offer', 'subtotal', 'offerDetails'));
+        return $pdf->download('Reporte_de_oferta_'.$offer->id.'.pdf');
     }
 }

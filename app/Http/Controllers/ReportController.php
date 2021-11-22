@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Sale;
+use App\Offer;
 use App\Provider;
 use Carbon\Carbon;
 
@@ -17,14 +18,14 @@ class ReportController extends Controller
         $this->middleware('can:reports.date')->only(['reports_date']);
     }
     public function reports_day(){
-        $sales = Sale::WhereDate('sale_date', Carbon::today('America/Chihuahua'))->get();
-        $total = $sales->sum('total');
-        return view('admin.report.reports_day', compact('sales', 'total'));
+        $offers = Offer::WhereDate('created_at', Carbon::today('America/Chihuahua'))->get();
+        $total = $offers->where('status', 'ACTIVE')->count('id');
+        return view('admin.report.reports_day', compact('offers', 'total'));
     }
     public function reports_date(){
-        $sales = Sale::whereDate('sale_date', Carbon::today('America/Chihuahua'))->get();
-        $total = $sales->sum('total');
-        return view('admin.report.reports_date', compact('sales', 'total'));
+        $offers = Offer::WhereDate('created_at', Carbon::today('America/Chihuahua'))->get();
+        $total = $offers->where('status', 'ACTIVE')->count('id');
+        return view('admin.report.reports_date', compact('offers', 'total'));
     }
 
     public function reports_provider(Provider $provider){
@@ -87,30 +88,9 @@ class ReportController extends Controller
     public function report_results(Request $request){
         $fi = $request->fecha_ini. ' 00:00:00';
         $ff = $request->fecha_fin. ' 23:59:59';
-        if($request->has('printPDF')){
-            $sales = Sale::whereBetween('sale_date', [$fi, $ff])->get();
-
-            $sale = $sales[0];
+        $offers = Offer::whereBetween('created_at', [$fi, $ff])->get();
+        $total = $offers->where('status', 'ACTIVE')->count('id');
+        return view('admin.report.reports_date', compact('offers', 'total')); 
         
-            $subtotal = 0;
-            $tax = 0;
-            foreach($sales as $sale){
-                $saleDetails1 = $sale->saleDetails;
-                $saleDetails[] = $sale->saleDetails;
-                foreach ($saleDetails1 as $saleDetail) {
-                    $subtotal += $saleDetail->quantity *$saleDetail->price - $saleDetail->quantity* $saleDetail->price*$saleDetail->discount/100;
-                    $tax += $saleDetail->quantity* $saleDetail->price*$sale->tax/100;
-                }
-            }
-            //dd($subtotal);
-            $pdf = PDF::loadView('admin.sale.pdfComplete', compact('sale', 'subtotal', 'saleDetails', 'tax'));
-            return $pdf->download('Reporte_de_venta_completo_'.$sale->id.'.pdf');
-        }else{
-            
-            $sales = Sale::whereBetween('sale_date', [$fi, $ff])->get();
-            //dd($fi);
-            $total = $sales->sum('total');
-            return view('admin.report.reports_date', compact('sales', 'total')); 
-        }
     }
 }

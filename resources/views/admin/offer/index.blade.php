@@ -12,11 +12,13 @@
 
 @endsection
 @section('create')
-<li class="nav item d-none d-lg-flex">
-    <a class="nav-link" href="{{route('offers.create')}}">
-        <span class="btn btn-primary">+ Crear nuevo</span>
-    </a>
-</li>
+@if(Auth::user()->name == 'Admin' || Auth::user()->name == 'Empresa')
+    <li class="nav item d-none d-lg-flex">
+        <a class="nav-link" href="{{route('offers.create')}}">
+            <span class="btn btn-primary">+ Crear nuevo</span>
+        </a>
+    </li>
+@endif
 @endsection
 @section('options')
 @endsection
@@ -123,7 +125,7 @@
                                                 @if ($offer->status == 'ACTIVE')
                                                 <a href="{{route('change.status.offers', $offer)}}" class="btn btn-success btn-block">Activo</a>
                                                 @else
-                                                <a href="{{route('change.status.offers', $offer)}}" class="btn btn-danger btn-block">Desactivado</a>
+                                                <a href="{{route('change.status.offers', $offer)}}" class="btn btn-danger btn-block">Inactivo</a>
                                                 @endif
                                             </div>
                                             <div class="col-lg-8 pl-lg-5">
@@ -187,7 +189,7 @@
                                     @endphp
                                         @foreach ($offer->applicants as $applicant)
                                             
-                                            @if ($applicant->id != $offer->id && $applicant->id !=  Auth::user()->id)
+                                            @if ($applicant->id != $offer->id && $applicant->id !=  Auth::user()->id || $offer->status == 'INACTIVE')
                                                 @php
                                                     $show = false;
                                                 @endphp
