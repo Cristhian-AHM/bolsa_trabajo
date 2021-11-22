@@ -24,7 +24,7 @@ class CreateOffersTable extends Migration
 
             $table->integer('salary')->nullable();
             $table->string('duration')->nullable();
-            $table->dateTime('expiration_date')->nullable();
+            $table->timestamp('expiration_date')->nullable();
             
             $table->enum('status', ['ACTIVE', 'INACTIVE'])->default('ACTIVE');
 
