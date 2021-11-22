@@ -178,11 +178,6 @@ class PermissionsTableSeeder extends Seeder
             'description'=>'Permite cambiar el estado de un experiencia laboral.',
         ]);
 
-        Permission::create([
-            'name'=>'Cambiar estado de compra',
-            'slug'=>'change.status.purchases',
-            'description'=>'Permite cambiar el estado de un compra.',
-        ]);
 
         Permission::create([
             'name'=>'Cambiar estado de oferta',

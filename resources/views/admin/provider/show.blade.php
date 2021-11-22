@@ -50,7 +50,6 @@
                                     </a>
                                     <a type="button" class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" user="tab" aria-controls="profile">Experiencia laboral</a>
                                     <a type="button" class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" user="tab" aria-controls="messages">Historial de postulaciones</a>
-                                    <a type="button" class="list-group-item list-group-item-action" id="list-sales-list" data-toggle="list" href="#list-sales" user="tab" aria-controls="sales">Historial de ventas</a>
                                     {{-- <a type="button" class="list-group-item list-group-item-action" href="{{route('reports.provider', $provider)}}">Reporte de ventas</a> --}}
                                 </div>
                             </div>

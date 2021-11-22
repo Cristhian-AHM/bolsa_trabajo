@@ -60,6 +60,7 @@
 
             </div>
         </div>
+        @if(sizeof($comprasmes) > 0)
         <div class="col-md-4 grid-margin stretch-card">
             <div class="card  text-white bg-info">
     
@@ -76,6 +77,7 @@
     
             </div>
         </div>
+        @endif
     </div>
     
     @endforeach
