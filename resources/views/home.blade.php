@@ -30,7 +30,6 @@
                     <div class="float-right">
                         
                     </div>
-                    <!-- <div class="text-value h4"><strong>{{number_format($total->totalcompra,0)}} (MES ACTUAL)</strong> -->
                     </div>
                     <div class="h3">Total de Ofertas</div>
                 </div>
@@ -49,7 +48,6 @@
                     <div class="float-right">
                         
                     </div>
-                    <!-- <div class="text-value h4"><strong>{{number_format($total->totalventa,0)}} (MES ACTUAL) </strong> -->
                     </div>
                     <div class="h3">Estudiantes Postulados</div>
                 </div>
@@ -69,7 +67,6 @@
                     <div class="float-right">
                         
                     </div>
-                    <!-- <div class="text-value h4"><strong>{{$comprasmes[0]->name}}</strong> -->
                     </div>
                     <div class="h3">Carrera con mayor demanda</div>
                 </div>
