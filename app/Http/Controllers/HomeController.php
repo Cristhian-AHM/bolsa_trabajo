@@ -32,7 +32,7 @@ class HomeController extends Controller
         // $comprasmes=DB::select('SELECT monthname(c.purchase_date) as mes, sum(c.total) as totalmes from purchases c where c.status="VALID" group by monthname(c.purchase_date) order by extract(month from c.purchase_date) desc limit 12');
         // $ventasmes=DB::select('SELECT monthname(v.sale_date) as mes, sum(v.total) as totalmes from sales v where v.status="VALID" group by monthname(v.sale_date) order by extract(month from v.sale_date) desc limit 12');
 
-        $ventasdia=DB::select("SELECT to_char(v.application_date,'dd.mm.YYYY') as dia, count(v.id) as totaldia from purchase_details v group by v.application_date order by day(v.application_date) desc limit 15");
+        $ventasdia=DB::select("SELECT to_char(v.application_date,'dd.mm.YYYY') as dia, count(v.id) as totaldia from purchase_details v group by v.application_date order by extract(day from v.application_date) desc limit 15");
         $totales=DB::select('SELECT (select ifnull(count(c.id),0) from offers c where DATE(c.created_at)=curdate() and c.status="ACTIVE") as totalcompra, (select ifnull(count(v.id),0) from providers v where DATE(v.created_at)=curdate()) as totalventa');
 
         
