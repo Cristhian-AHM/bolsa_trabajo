@@ -30,6 +30,7 @@
                     <div class="float-right">
                         
                     </div>
+                  <div class="text-value h4"><strong>0 (MES ACTUAL)</strong> -->
                     </div>
                     <div class="h3">Total de Ofertas</div>
                 </div>
@@ -48,6 +49,7 @@
                     <div class="float-right">
                         
                     </div>
+                    <div class="text-value h4"><strong>0 (MES ACTUAL) </strong> -->
                     </div>
                     <div class="h3">Estudiantes Postulados</div>
                 </div>
@@ -67,6 +69,7 @@
                     <div class="float-right">
                         
                     </div>
+                    <div class="text-value h4"><strong>0</strong> 
                     </div>
                     <div class="h3">Carrera con mayor demanda</div>
                 </div>
