@@ -24,8 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $comprasmes=DB::select('SELECT month(c.expiration_date) as mes, count(c.id) as totalmes, c.name as name from offers c where c.status="ACTIVE" group by month(c.expiration_date) order by month(c.expiration_date) desc limit 12;');
-        //dd($comprasmes);
+        $comprasmes=DB::select('SELECT month(c.created_at) as mes, count(c.id) as totalmes from offers c where c.status="ACTIVE" group by month(c.created_at) order by month(c.created_at) desc limit 12;');
+
         $ventasmes=DB::select('SELECT month(v.application_date) as mes, count(v.id) as totalmes from purchase_details v group by month(v.application_date) order by month(v.application_date) desc limit 12');
 
         
@@ -33,7 +33,7 @@ class HomeController extends Controller
         // $ventasmes=DB::select('SELECT monthname(v.sale_date) as mes, sum(v.total) as totalmes from sales v where v.status="VALID" group by monthname(v.sale_date) order by month(v.sale_date) desc limit 12');
 
         $ventasdia=DB::select('SELECT DATE_FORMAT(v.application_date,"%d/%m/%Y") as dia, count(v.id) as totaldia from purchase_details v group by v.application_date order by day(v.application_date) desc limit 15');
-        $totales=DB::select('SELECT (select ifnull(count(c.id),0) from offers c where DATE(c.expiration_date)=curdate() and c.status="ACTIVE") as totalcompra, (select ifnull(count(v.id),0) from providers v where DATE(v.expiration_date)=curdate()) as totalventa');
+        $totales=DB::select('SELECT (select ifnull(count(c.id),0) from offers c where DATE(c.created_at)=curdate() and c.status="ACTIVE") as totalcompra, (select ifnull(count(v.id),0) from providers v where DATE(v.created_at)=curdate()) as totalventa');
 
         
         /*$productosvendidos=DB::select('SELECT p.code as code, 
