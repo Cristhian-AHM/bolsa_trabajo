@@ -24,9 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $comprasmes=DB::select('SELECT month(c.created_at) as mes, count(c.id) as totalmes, c.name as name from offers c where c.status="ACTIVE" group by month(c.created_at) order by month(c.created_at) desc limit 12;');
+        $comprasmes=DB::select('SELECT extract(month from c.created_at) as mes, count(c.id) as totalmes, c.name as name from offers c where c.status="ACTIVE" group by extract(month from c.created_at) order by extract(month from c.created_at) desc limit 12;');
         //dd($comprasmes);
-        $ventasmes=DB::select('SELECT month(v.application_date) as mes, count(v.id) as totalmes from purchase_details v group by month(v.application_date) order by month(v.application_date) desc limit 12');
+        $ventasmes=DB::select('SELECT extract(month from v.application_date) as mes, count(v.id) as totalmes from purchase_details v group by extract(month from v.application_date) order by month(v.application_date) desc limit 12');
 
         
         // $comprasmes=DB::select('SELECT monthname(c.purchase_date) as mes, sum(c.total) as totalmes from purchases c where c.status="VALID" group by monthname(c.purchase_date) order by month(c.purchase_date) desc limit 12');
