@@ -8,6 +8,7 @@ use App\Provider;
 use Illuminate\Http\Request;
 use App\Http\Requests\Offer\StoreRequest;
 use App\Http\Requests\Offer\UpdateRequest;
+use Illuminate\Support\Facades\Auth;
 
 use Barryvdh\DomPDF\Facade as PDF;
 
@@ -35,7 +36,10 @@ class OfferController extends Controller
     public function index()
     {
         $offers = Offer::get();
-        return view('admin.offer.index', compact('offers'));
+        $category = Category::where('user_id', 1)->get();
+
+        //dd($category);
+        return view('admin.offer.index', compact('offers', 'category'));
     }
 
     /**

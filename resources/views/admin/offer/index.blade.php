@@ -14,7 +14,7 @@
 @section('create')
 @if(Auth::user()->name == 'Admin' || Auth::user()->name == 'Empresa')
     <li class="nav item d-none d-lg-flex">
-        <a class="nav-link" href="{{route('offers.create')}}">
+        <a class="nav-link" href="{{route('offers.create_offer', $category[0])}}">
             <span class="btn btn-primary">+ Crear nuevo</span>
         </a>
     </li>

@@ -21,7 +21,7 @@
         </h3>
     </div>
 
-    @foreach ($totales as $total)
+    
     <div class="row">
         <div class="col-md-4 grid-margin stretch-card">
             <div class="card text-white bg-warning">
@@ -60,7 +60,7 @@
 
             </div>
         </div>
-        <!-- @if(sizeof($comprasmes) > 0) -->
+
         <div class="col-md-4 grid-margin stretch-card">
             <div class="card  text-white bg-info">
     
@@ -77,10 +77,10 @@
     
             </div>
         </div>
-        <!-- @endif -->
+     
     </div>
     
-    @endforeach
+
 
     <div class="col-md-12 grid-margin stretch-card">
         <div class="card">

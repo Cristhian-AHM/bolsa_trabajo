@@ -1,5 +1,5 @@
 @extends('layouts.admin')
-@section('title','Reporte de ventas')
+@section('title','Reporte de ofertas')
 @section('styles')
 <style type="text/css">
     .unstyled-button {
