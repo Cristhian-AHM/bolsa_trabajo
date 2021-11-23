@@ -245,9 +245,11 @@
                                     </td>
                                 </tr>--}}
                                 
-                                @endforeach
-                            
+                </div>
+                
+                   @endforeach
                     </div>
+                </div>  
                 </div>
                 {{--  <div class="card-footer text-muted">
                     {{$offers->render()}}
