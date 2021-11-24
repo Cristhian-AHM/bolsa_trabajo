@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Category;
+use App\Offer;
+use App\PurchaseDetails;
+use App\Provider;
 use Illuminate\Http\Request;
 use App\Http\Requests\Category\StoreRequest;
 use App\Http\Requests\Category\UpdateRequest;
@@ -64,7 +67,12 @@ class CategoryController extends Controller
     public function show(Category $category)
     {
         //dd($category);
-        return view('admin.category.show', compact('category'));
+        $offers = $category->offers;
+        
+
+        $applicants = PurchaseDetails::where('offer_id', $offers[0]['id'])->get();
+        $students = Provider::where('user_id', $applicants[0]['id'])->get();
+        return view('admin.category.show', compact('category', 'students'));
     }
 
     /**

@@ -49,6 +49,7 @@
                                         Datos de la compañía
                                     </a>
                                     <a type="button" class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" user="tab" aria-controls="profile">Ofertas publicadas</a>
+                                    <a type="button" class="list-group-item list-group-item-action" id="list-post-list" data-toggle="list" href="#list-post" user="tab" aria-controls="post">Alumnos postulados</a>
 
                                 </div>
                             </div>
@@ -108,7 +109,7 @@
                                     
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <h4>Experiencia de trabajo</h4>
+                                            <h4>Ofertas</h4>
                                         </div>
                                     </div>
                                     <div class="profile-feed">
@@ -164,6 +165,75 @@
                                                         <span class="btn btn-primary">Registrar oferta</span>
                                                     </a>
                                                 </li>
+                                            </div>
+        
+                                        </div>
+                                    </div>
+        
+                                </div>
+
+                                <div class="tab-pane fade" id="list-post" user="tabpanel" aria-labelledby="list-post-list">
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h4>Postulados</h4>
+                                        </div>
+                                    </div>
+                                    <div class="profile-feed">
+                                        <div class="d-flex align-items-start profile-feed-item">
+        
+                                            <div class="table-responsive">
+                                                <table id="order-listing" class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Nombre</th>
+                                                            <th>Apellidos</th>
+                                                            <th>Teléfono/Celular</th>
+                                                            <th>Correo electrónico</th>
+                                                            <th>Carrera</th>
+                                                            <th>Semestre</th>
+                                                            
+                                                            <th>Acciones</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        @foreach ($students as $provider)
+                                    @if(Auth::user()->name == 'Admin' || Auth::user()->id == $provider->user_id || Auth::user()->name == 'Empresa')
+                                        <tr>
+                                            <th scope="row">
+                                                <a href="{{route('providers.show',$provider)}}">{{$provider->name}}</a>
+                                            </th>
+                                            <td>{{$provider->lastname}}</td>
+                                            <td>{{$provider->phone}}</td>
+                                            <td>{{$provider->email}}</td>
+                                            <td>{{$provider->career}}</td>
+                                            <td>{{$provider->semester}}</td>
+                                            
+                                            <td style="width: 50px;">
+                                                {!! Form::open(['route'=>['providers.destroy',$provider], 'method'=>'DELETE']) !!}
+
+                                                <a class="jsgrid-button jsgrid-edit-button" href="{{route('providers.edit', $provider)}}" title="Editar">
+                                                    <i class="far fa-edit"></i>
+                                                </a>
+                                                
+                                                <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
+                                                    <i class="far fa-trash-alt"></i>
+                                                </button>
+
+                                                {!! Form::close() !!}
+                                            </td>
+                                        </tr>
+                                    @endif
+                                @endforeach
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr>
+                                                            
+                                                            
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+
                                             </div>
         
                                         </div>
