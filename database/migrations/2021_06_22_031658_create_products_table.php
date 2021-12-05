@@ -25,6 +25,8 @@ class CreateProductsTable extends Migration
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
 
+            
+
             $table->string('position');
             $table->string('reference');
             

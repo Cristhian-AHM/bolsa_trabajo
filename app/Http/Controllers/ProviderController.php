@@ -49,9 +49,22 @@ class ProviderController extends Controller
      */
     public function store(StoreRequest $request)
     {
-        Provider::create($request->all()+[
-            'user_id'=>Auth::user()->id,
-        ]);
+        if($request->hasFile('curriculum')){
+            $file = $request->file('curriculum');
+            $curriculum_name = time().'_'.$file->getClientOriginalName();
+            $file->move(public_path("/curriculums"),$curriculum_name);
+
+            $provider = Provider::create($request->all()+[
+                'curriculum_file'=> $curriculum_name,
+                'user_id'=>Auth::user()->id,
+            ]);
+            
+        }else{
+            Provider::create($request->all()+[
+                'user_id'=>Auth::user()->id,
+            ]);
+        }
+        
         return redirect()->route('providers.index');
     }
 

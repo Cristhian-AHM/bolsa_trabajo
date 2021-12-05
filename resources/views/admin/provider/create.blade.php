@@ -28,7 +28,7 @@
                     <div class="d-flex justify-content-between">
                         <h4 class="card-title">Registro de estudiantes</h4>
                     </div>
-                    {!! Form::open(['route'=>'providers.store', 'method'=>'POST']) !!}
+                    {!! Form::open(['route'=>'providers.store', 'method'=>'POST', 'files' => true]) !!}
                     
                     {{--  'name', 'email','ruc_number', 'address','phone',  --}}
 
@@ -62,6 +62,15 @@
                         <input type="number" class="form-control" name="semester" id="semester" aria-describedby="helpId">
                     </div>
 
+                    <div class="card-body">
+                        <h4 class="card-title d-flex">Curriculum (CV)
+                          <small class="ml-auto align-self-end">
+                            <a href="dropify.html" class="font-weight-light" target="_blank">Seleccionar Archivo</a>
+                          </small>
+                        </h4>
+                        <input type="file"  name="curriculum" id="curriculum" class="dropify" required/>
+                    </div>
+
                      <button type="submit" class="btn btn-primary mr-2">Registrar</button>
                      <a href="{{route('providers.index')}}" class="bg-transparent text-dark btn">
                         Cancelar
@@ -78,4 +87,5 @@
 @endsection
 @section('scripts')
 {!! Html::script('melody/js/data-table.js') !!}
+{!! Html::script('melody/js/dropify.js') !!}
 @endsection

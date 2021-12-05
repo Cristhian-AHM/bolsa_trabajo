@@ -81,6 +81,15 @@
                                                     {{$provider->semester}}
                                                 </p>
                                                 <hr>
+                                                <p class="text-muted">
+                                                    <div class="row justify-content-center">
+                                                        <iframe src="{{ asset('curriculums/'.$provider->curriculum_file) }}" width="100%" height="300">
+                                                                This browser does not support PDFs. Please download the PDF to view it: <a href="{{asset('curriculums/'.$provider->curriculum_file) }}">Descargar CV</a>
+                                                        </iframe>
+                                                        <a href="{{asset('curriculums/'.$provider->curriculum_file) }}">Descargar CV</a>
+                                                    </div>
+                                                    {{-- <img src="{{asset('image/logo.png')}}" alt="profile" class="img-lg  mb-3" /> --}}
+                                                </p>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <strong>

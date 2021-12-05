@@ -227,31 +227,16 @@
                                 @endforeach
                                                     </tbody>
                                                     <tfoot>
-                                                        <tr>
-                                                            
-                                                            
+                                                        <tr>     
                                                         </tr>
                                                     </tfoot>
                                                 </table>
-
                                             </div>
-        
                                         </div>
                                     </div>
-        
                                 </div>
-
-                                
-
-
                             </div>
                         </div>
-
-                        
-
-
-
-
                     </div>
                 </div>
                 <div class="card-footer text-muted">

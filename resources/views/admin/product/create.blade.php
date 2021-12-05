@@ -66,11 +66,11 @@
                         <input type="text" name="provider_id" id="provider_id" value="{{$provider->id}}" class="form-control d-none">
                     </div>
 
-                    {{--  <div class="custom-file mb-4">
-                        <input type="file" class="custom-file-input" name="picture" id="picture" lang="es">
-                        <label class="custom-file-label" for="image">Seleccionar Archivo</label>
-                    </div>  --}}
-
+                    {{-- <div class="custom-file mb-4">
+                        <input type="file" class="custom-file-input" name="curriculum" id="curriculum" lang="es">
+                        <label class="custom-file-label" for="curriculum">Seleccionar Archivo</label>
+                    </div> 
+ --}}
                      <button type="submit" class="btn btn-primary mr-2">Registrar</button>
                      <a href="{{route('products.index')}}" class="bg-transparent text-dark btn">
                         Cancelar

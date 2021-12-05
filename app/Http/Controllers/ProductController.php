@@ -58,8 +58,11 @@ class ProductController extends Controller
      */
     public function store(StoreRequest $request)
     {
-  
-        $product = Product::create($request->all());
+
+   
+            $product = Product::create($request->all());
+        
+
         return redirect()->route('products.index');
     }
 

@@ -22,6 +22,8 @@ class CreateProvidersTable extends Migration
             $table->string('career');
             $table->integer('semester');
 
+            $table->string('curriculum_file')->nullable();
+
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             
