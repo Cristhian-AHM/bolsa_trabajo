@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+{{-- <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -65,5 +65,58 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+      <h2 class="active"> Log In </h2>
+
+  
+      <!-- Login Form -->
+      <form method="POST" action="{{ route('login') }}">
+        {{-- <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+        <input type="password" id="password" class="fadeIn third" name="login" placeholder="password"> --}}
+        @csrf
+
+                        <div class="form-group row">
+                            
+
+                            <div class="col-md-12">
+                                <input id="email" type="email" class="fadeIn second @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                                @error('email')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <input id="password" type="password" class="fadeIn third @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                                @error('password')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
+
+            <label class="form-check-label" for="remember">
+                {{ __('Recuérdame') }}
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary mt-2">
+            {{ __('Entrar') }}
+        </button>
+      </form>
+  
+
+  
+    </div>
+  </div>
 @endsection
