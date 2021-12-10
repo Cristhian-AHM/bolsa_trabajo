@@ -66,57 +66,26 @@
         </div>
     </div>
 </div> --}}
-<div class="wrapper fadeInDown">
-    <div id="formContent">
-      <!-- Tabs Titles -->
-      <h2 class="active"> Log In </h2>
+<div class="container container2" id="container">  
+	<div class="form-container sign-in-container">
+		<form method="POST" action="{{ route('login') }}">
+            @csrf
 
-  
-      <!-- Login Form -->
-      <form method="POST" action="{{ route('login') }}">
-        {{-- <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-        <input type="password" id="password" class="fadeIn third" name="login" placeholder="password"> --}}
-        @csrf
-
-                        <div class="form-group row">
-                            
-
-                            <div class="col-md-12">
-                                <input id="email" type="email" class="fadeIn second @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
-                                @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <div class="col-md-12">
-                                <input id="password" type="password" class="fadeIn third @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
-
-                                @error('password')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-
-            <label class="form-check-label" for="remember">
-                {{ __('Recuérdame') }}
-            </label>
-        </div>
-        <button type="submit" class="btn btn-primary mt-2">
-            {{ __('Entrar') }}
-        </button>
-      </form>
-  
-
-  
-    </div>
-  </div>
+			<h1>Bolsa de trabajo</h1>
+			<span>Ingresar</span>
+			<input type="email" placeholder="Correo" class=" @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus/>
+			<input type="password" placeholder="Contraseña" class="@error('password') is-invalid @enderror" name="password" required autocomplete="current-password" />
+			<button type="submit">Entrar</button>
+		</form>
+	</div>
+	<div class="overlay-container">
+		<div class="overlay">
+			<div class="overlay-panel overlay-right">
+				<h2>Instituto Tecnológico de Ciudad Juárez</h2>
+				<p>Introduce tus datos y empieza a viajar con nosotros</p>
+				<button class="ghost" id="signUp">Registrarse</button>
+			</div>
+		</div>
+	</div>
+</div>
 @endsection
