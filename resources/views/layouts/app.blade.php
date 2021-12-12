@@ -42,12 +42,9 @@
                         <!-- Authentication Links -->
                         @guest
                         <div>
-                            <a href="{{ route('register') }}">Registrar Empresa</a>
+                            <a href="{{ route('register') }}">Registrarse</a>
                         </div>
 
-                        <div class="ml-3">
-                            <a href="{{ route('register') }}">Registrar Estudiante</a>
-                        </div>
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
