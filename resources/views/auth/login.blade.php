@@ -83,7 +83,8 @@
 			<div class="overlay-panel overlay-right">
 				<h2>Instituto Tecnológico de Ciudad Juárez</h2>
 				<p>Introduce tus datos y empieza a viajar con nosotros</p>
-				<button class="ghost" id="signUp">Registrarse</button>
+				<button class="ghost" href="{{ route('register')}}" id="signUp">                            <a href="{{ route('register') }}">Registrarse</a>
+                </button>
 			</div>
 		</div>
 	</div>
