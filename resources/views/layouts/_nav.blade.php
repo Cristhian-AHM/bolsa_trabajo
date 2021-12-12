@@ -19,7 +19,7 @@
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
-        @if(Auth::user()->name == 'Admin')
+        @if(Auth::user()->type == 'admin')
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#page-layouts1" aria-expanded="false"
                     aria-controls="page-layouts">
@@ -39,25 +39,29 @@
                 </div>
             </li>
         @endif
+        @if(Auth::user()->type == 'admin' || Auth::user()->type == 'Empresa')
         <li class="nav-item">
             <a class="nav-link" href="{{route('categories.index')}}">
                 <i class="fas fa-building menu-icon"></i>
                 <span class="menu-title"> Compañías</span>
             </a>
         </li>
+        @endif
         <li class="nav-item">
             <a class="nav-link" href="{{route('offers.index')}}">
                 <i class="fas fa-briefcase menu-icon"></i>
                 <span class="menu-title">Ofertas</span>
             </a>
         </li>
+        @if(Auth::user()->type == 'admin' || Auth::user()->type == 'Estudiante')
         <li class="nav-item">
             <a class="nav-link" href="{{route('providers.index')}}">
                 <i class="fas fa-user-graduate menu-icon"></i>
                 <span class="menu-title">Estudiantes</span>
             </a>
         </li>
-        @if(Auth::user()->name == 'Admin')
+        @endif
+        @if(Auth::user()->type == 'admin')
             <li class="nav-item">
                 <a class="nav-link" href="{{route('users.index')}}">
                     <i class="fas fa-user-tag menu-icon"></i>

@@ -21,6 +21,7 @@ class UsersTableSeeder extends Seeder
         $user = User::create([
             'name'=>'Admin',
             'email'=>'admin@gmail.com',
+            'type'=>'admin',
             'password'=>'$2y$10$HSphzVe7y78W5bvnpUIarOkb1561y6OP66GoxQB2rzdMy1BQP5j2O',
         ]);
 

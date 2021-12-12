@@ -65,6 +65,7 @@ Route::get('get_products_by_barcode', 'ProductController@get_products_by_barcode
 Route::get('get_products_by_id', 'ProductController@get_products_by_id')->name('get_products_by_id');
 Route::get('products/create_work/{provider}', 'ProductController@create_work')->name('products.create_work');
 Route::get('offers/create_offer/{category}', 'OfferController@create_offer')->name('offers.create_offer');
+Route::post('users.store_login', 'UserController@store_login')->name('users.store_login');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

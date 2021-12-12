@@ -140,14 +140,7 @@
                                         </p>
                                         <hr>
                                         <strong><i class="fab fa-product-hunt mr-1"></i> Curriculum</strong>
-                                        <p class="text-muted">
-                                            <div class="row justify-content-center">
-                                                <iframe src="{{ asset('curriculums/'.$product->curriculum_file) }}" width="50%" height="600">
-                                                        This browser does not support PDFs. Please download the PDF to view it: <a href="{{asset('curriculums/'.$product->curriculum_file) }}">Descargar CV</a>
-                                                </iframe>
-                                            </div>
-                                            {{-- <img src="{{asset('image/logo.png')}}" alt="profile" class="img-lg  mb-3" /> --}}
-                                        </p>
+                                        
                                         <!--<strong><i class="fas fa-envelope mr-1"></i> Código de barras</strong>
                                         <p class="text-muted">
                                            {{-- {!!DNS1D::getBarcodeHTML($product->code, 'EAN13'); !!} --}}

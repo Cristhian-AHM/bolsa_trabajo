@@ -38,23 +38,12 @@
                         <label for="email">Correo electrónico</label>
                         <input type="email" name="email" id="email" class="form-control" placeholder="" aria-describedby="helpId">
                       </div>
-
-                      <div class="form-group">
-                        <label for="category_id">Tipo</label>
-                        <select class="form-control" name="type" id="type">
-                          <option value="Estudiante">Estudiante</option>
-                          <option value="Empresa">Empresa</option>
-                        </select>
-                      </div> 
                       
                       <div class="form-group">
                           <label for="password">Contraseña</label>
                           <input type="password" name="password" id="password" class="form-control" placeholder="" aria-describedby="helpId">
                       </div>
 
-                      
-
-                    @include('admin.user._form')
                      <button type="submit" class="btn btn-primary mr-2">Registrar</button>
                      <a href="{{route('users.index')}}" class="btn btn-light">
                         Cancelar

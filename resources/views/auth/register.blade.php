@@ -1,28 +1,19 @@
 @extends('layouts.app')
 
+
+
+
+
 @section('content')
 <div class="content-wrapper">
-    <div class="page-header">
-        <h3 class="page-title">
-            Registro de usuario
-        </h3>
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb breadcrumb-custom">
-                <li class="breadcrumb-item"><a href="#">Panel administrador</a></li>
-                <li class="breadcrumb-item"><a href="{{route('users.index')}}">Usuarios</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Registro de usuario</li>
-            </ol>
-        </nav>
-    </div>
     <div class="row">
-        <div class="col-lg-12 grid-margin stretch-card">
-            <div class="card">
-                <div class="card-body">
+            <div class="container container2">
+                <div class="card-form-container">
                     
                     <div class="d-flex justify-content-between">
-                        <h4 class="card-title">Registro de usuario</h4>
+                        <h4 class="card-title mt-2 bold-text">Registro de usuario</h4>
                     </div>
-                    {!! Form::open(['route'=>'users.store', 'method'=>'POST']) !!}
+                    {!! Form::open(['route'=>'users.store_login', 'method'=>'POST']) !!}
 
                     <div class="form-group">
                         <label for="name">Nombre</label>
@@ -32,13 +23,20 @@
                         <label for="email">Correo electrónico</label>
                         <input type="email" name="email" id="email" class="form-control" placeholder="" aria-describedby="helpId">
                       </div>
+
+                      <div class="form-group">
+                        <label for="category_id">Tipo</label>
+                        <select class="form-control" name="type" id="type">
+                          <option value="Estudiante">Estudiante</option>
+                          <option value="Empresa">Empresa</option>
+                        </select>
+                      </div>
                       
                       <div class="form-group">
                           <label for="password">Contraseña</label>
                           <input type="password" name="password" id="password" class="form-control" placeholder="" aria-describedby="helpId">
                       </div>
 
-                    @include('admin.user._form')
                      <button type="submit" class="btn btn-primary mr-2">Registrar</button>
                      <a href="{{route('users.index')}}" class="btn btn-light">
                         Cancelar
@@ -50,6 +48,5 @@
                 </div>  --}}
             </div>
         </div>
-    </div>
 </div>
 @endsection

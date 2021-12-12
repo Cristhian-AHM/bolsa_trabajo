@@ -11,13 +11,12 @@ class UserController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth');
+       /*  $this->middleware('auth');
 
-        $this->middleware('can:users.create')->only(['create','store']);
         $this->middleware('can:users.index')->only(['index']);
         $this->middleware('can:users.edit')->only(['edit','update']);
         $this->middleware('can:users.show')->only(['show']);
-        $this->middleware('can:users.destroy')->only(['destroy']);
+        $this->middleware('can:users.destroy')->only(['destroy']); */
     }
     public function index()
     {
@@ -29,13 +28,25 @@ class UserController extends Controller
         $roles = Role::get();
         return view('admin.user.create', compact('roles'));
     }
+    
     public function store(Request $request)
     {
         $user = User::create($request->all());
         $user->update(['password'=> Hash::make($request->password)]);
-        $user->roles()->sync($request->get('roles'));
+        //$user->roles()->sync($request->get('roles'));
+        $user->roles()->sync(1);
         return redirect()->route('users.index');
     }
+
+    public function store_login(Request $request)
+    {
+        $user = User::create($request->all());
+        $user->update(['password'=> Hash::make($request->password)]);
+        //$user->roles()->sync($request->get('roles'));
+        $user->roles()->sync(1);
+        return redirect()->route('login');
+    }
+
     public function show(User $user)
     {
         $total_purchases = 0;
