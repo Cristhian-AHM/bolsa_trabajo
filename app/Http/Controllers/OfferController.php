@@ -36,7 +36,7 @@ class OfferController extends Controller
     public function index()
     {
         $offers = Offer::get();
-        $category = Category::where('user_id', 1)->get();
+        $category = Category::where('user_id', Auth::user()->id)->get();
 
         //dd($category);
         return view('admin.offer.index', compact('offers', 'category'));

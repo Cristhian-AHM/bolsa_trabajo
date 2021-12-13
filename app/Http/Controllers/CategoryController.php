@@ -68,10 +68,14 @@ class CategoryController extends Controller
     {
         //dd($category);
         $offers = $category->offers;
-        
 
-        $applicants = PurchaseDetails::where('offer_id', $offers[0]['id'])->get();
-        $students = Provider::where('user_id', $applicants[0]['id'])->get();
+
+        $students = [];
+        if(sizeof($offers) > 0){
+            $applicants = PurchaseDetails::where('offer_id', $offers[0]['id'])->get();
+            $students = Provider::where('user_id', $applicants[0]['id'])->get();
+        }
+        
         return view('admin.category.show', compact('category', 'students'));
     }
 
