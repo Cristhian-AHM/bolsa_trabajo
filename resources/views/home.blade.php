@@ -36,7 +36,7 @@
                     <div class="h3">Total de Ofertas</div>
                 </div>
                 <div class="chart-wrapper mt-3 mx-3" style="height:35px;">
-                    <a href="{{route('purchases.index')}}" class="small-box-footer h5">Ofertas <i
+                    <a href="{{route('offers.index')}}" class="small-box-footer h5">Ofertas <i
                             class="fa fa-arrow-circle-right"></i></a>
                 </div>
 
@@ -55,7 +55,7 @@
                     <div class="h3">Estudiantes Postulados</div>
                 </div>
                 <div class="chart-wrapper mt-3 mx-3" style="height:35px;">
-                    <a href="{{route('sales.index')}}" class="small-box-footer h5">Estudiantes <i
+                    <a href="{{route('providers.index')}}" class="small-box-footer h5">Estudiantes <i
                             class="fa fa-arrow-circle-right"></i></a>
                 </div>
 

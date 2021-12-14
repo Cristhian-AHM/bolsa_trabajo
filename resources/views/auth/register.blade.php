@@ -38,7 +38,7 @@
                       </div>
 
                      <button type="submit" class="btn btn-primary mr-2">Registrar</button>
-                     <a href="{{route('users.index')}}" class="btn btn-light">
+                     <a href="{{route('login')}}" class="btn btn-light">
                         Cancelar
                      </a>
                      {!! Form::close() !!}
