@@ -193,7 +193,7 @@
                                                             <th>Carrera</th>
                                                             <th>Semestre</th>
                                                             
-                                                            <th>Acciones</th>
+                                                         
                                                         </tr>
                                                     </thead>
                                                     <tbody>
@@ -209,19 +209,7 @@
                                             <td>{{$provider->career}}</td>
                                             <td>{{$provider->semester}}</td>
                                             
-                                            <td style="width: 50px;">
-                                                {!! Form::open(['route'=>['providers.destroy',$provider], 'method'=>'DELETE']) !!}
-
-                                                <a class="jsgrid-button jsgrid-edit-button" href="{{route('providers.edit', $provider)}}" title="Editar">
-                                                    <i class="far fa-edit"></i>
-                                                </a>
-                                                
-                                                <button class="jsgrid-button jsgrid-delete-button unstyled-button" type="submit" title="Eliminar">
-                                                    <i class="far fa-trash-alt"></i>
-                                                </button>
-
-                                                {!! Form::close() !!}
-                                            </td>
+                                            
                                         </tr>
                                     @endif
                                 @endforeach
