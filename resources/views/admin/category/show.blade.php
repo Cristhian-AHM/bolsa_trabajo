@@ -198,7 +198,7 @@
                                                     </thead>
                                                     <tbody>
                                                         @foreach ($students as $provider)
-                                    @if(Auth::user()->name == 'Admin' || Auth::user()->id == $provider->user_id || Auth::user()->name == 'Empresa')
+                                    @if(Auth::user()->type == 'admin' || Auth::user()->id == $provider->user_id || Auth::user()->type == 'Empresa')
                                         <tr>
                                             <th scope="row">
                                                 <a href="{{route('providers.show',$provider)}}">{{$provider->name}}</a>

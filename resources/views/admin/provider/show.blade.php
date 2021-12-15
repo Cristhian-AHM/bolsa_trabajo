@@ -49,7 +49,9 @@
                                         Datos del estudiante
                                     </a>
                                     <a type="button" class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" user="tab" aria-controls="profile">Experiencia laboral</a>
+                                    @if(Auth::user()->type != 'Empresa')
                                     <a type="button" class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" user="tab" aria-controls="messages">Historial de postulaciones</a>
+                                    @endif
                                 </div>
                             </div>
                         </div>
@@ -170,18 +172,20 @@
                                                         </tr>
                                                     </tfoot>
                                                 </table>
+                                                @if(Auth::user()->type != 'Empresa')
                                                 <li class="nav item d-none d-lg-flex">
                                                     <a class="nav-link" href="{{route('products.create_work', $provider)}}">
                                                         <span class="btn btn-primary">Registrar trabajo</span>
                                                     </a>
                                                 </li>
+                                                @endif
                                             </div>
         
                                         </div>
                                     </div>
         
                                 </div>
-
+                                @if(Auth::user()->type != 'Empresa')
                                 <div class="tab-pane fade" id="list-messages" user="tabpanel" aria-labelledby="list-messages-list">
                                     <div class="d-flex justify-content-between">
                                         <div>
@@ -255,6 +259,7 @@
                                         </div>
                                     </div>
                                 </div>
+                                @endif
 
 
                             </div>

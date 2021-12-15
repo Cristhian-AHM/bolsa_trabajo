@@ -138,8 +138,7 @@
                                             @endif
                                             
                                         </p>
-                                        <hr>
-                                        <strong><i class="fab fa-product-hunt mr-1"></i> Curriculum</strong>
+                                        
                                         
                                         <!--<strong><i class="fas fa-envelope mr-1"></i> Código de barras</strong>
                                         <p class="text-muted">

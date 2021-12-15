@@ -76,7 +76,7 @@ class ProviderController extends Controller
     public function show(Provider $provider)
     {
         $offers = Offer::join('purchase_details','offers.id', '=','purchase_details.offer_id')
-                         ->where('purchase_details.offer_id', Auth::user()->id)->get(); 
+                         ->where('purchase_details.user_id', Auth::user()->id)->get(); 
         
         $offersLeft = Offer::get();        
 

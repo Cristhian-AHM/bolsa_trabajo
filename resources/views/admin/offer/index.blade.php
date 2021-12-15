@@ -111,9 +111,9 @@
                                                         </span>
                                                     </p>  --}}
                                                 </div>
-                    
+                                                
                                                 {{--  <button class="btn btn-primary btn-block">{{$offer->status}}</button>  --}}
-                                                @if(Auth::user()->type == 'admin')
+                                                @if(Auth::user()->type == 'admin' || Auth::user()->type == 'Empresa')
                                                     @if ($offer->status == 'ACTIVE')
                                                     <a href="{{route('change.status.offers', $offer)}}" class="btn btn-success btn-block">Activo</a>
                                                     @else
@@ -188,13 +188,17 @@
                                         $show = true;
                                     @endphp
                                         @foreach ($offer->applicants as $applicant)
-                                            @if ($applicant->user_id == Auth::user()->id || $offer->status == 'INACTIVE')
+                                            @if ($applicant->user_id == Auth::user()->id || $offer->status == 'INACTIVE' || Auth::user()->type == 'admin' || Auth::user()->type == 'Empresa')
                                                 @php
                                                     $show = false;
                                                 @endphp
                                             @endif
                                         @endforeach
-                                        
+                                        @if(Auth::user()->type == 'Empresa')
+                                            @php
+                                                $show = false;
+                                            @endphp
+                                        @endif
                                         @if ($show)
                                         {!! Form::open(['route'=>'purchaseDetails.store', 'method'=>'POST','files' => true]) !!}
                                             <div class="form-group">
