@@ -197,7 +197,9 @@
                                                         </tr>
                                                     </thead>
                                                     <tbody>
-                                                        @foreach ($students as $provider)
+                                                        
+                                                        @foreach ($students as $providers)
+                                                         @foreach($providers as $provider)
                                     @if(Auth::user()->type == 'admin' || Auth::user()->id == $provider->user_id || Auth::user()->type == 'Empresa')
                                         <tr>
                                             <th scope="row">
@@ -212,6 +214,7 @@
                                             
                                         </tr>
                                     @endif
+                                    @endforeach
                                 @endforeach
                                                     </tbody>
                                                     <tfoot>
