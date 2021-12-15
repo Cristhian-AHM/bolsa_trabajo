@@ -89,10 +89,18 @@
                             </div>
 
                             {{--  <button class="btn btn-primary btn-block">{{$offer->status}}</button>  --}}
-                            @if ($offer->status == 'ACTIVE')
-                            <a href="{{route('change.status.offers', $offer)}}" class="btn btn-success btn-block">Activo</a>
+                            @if(Auth::user()->type == 'admin')
+                                @if ($offer->status == 'ACTIVE')
+                                <a href="{{route('change.status.offers', $offer)}}" class="btn btn-success btn-block">Activo</a>
+                                @else
+                                <a href="{{route('change.status.offers', $offer)}}" class="btn btn-danger btn-block">Inactivo</a>
+                                @endif
                             @else
-                            <a href="{{route('change.status.offers', $offer)}}" class="btn btn-danger btn-block">Desactivado</a>
+                                @if ($offer->status == 'ACTIVE')
+                                <a class="btn btn-success btn-block">Activo</a>
+                                @else
+                                <a class="btn btn-danger btn-block">Inactivo</a>
+                                @endif
                             @endif
                         </div>
                         <div class="col-lg-8 pl-lg-5">

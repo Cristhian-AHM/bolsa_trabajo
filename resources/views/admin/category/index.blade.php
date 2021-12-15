@@ -10,7 +10,7 @@
       }
 </style>
 @section('create')
-@if(Auth::user()->type == 'admin' || Auth::user()->type == 'Empresa')
+@if(Auth::user()->type == 'admin')
     <li class="nav item d-none d-lg-flex">
         <a class="nav-link" href="{{route('categories.create')}}">
             <span class="btn btn-primary">+ Crear nuevo</span>

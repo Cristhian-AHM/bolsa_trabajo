@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Caffeinated\Shinobi\Models\Role;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -31,6 +32,7 @@ class UserController extends Controller
     
     public function store(Request $request)
     {
+        
         $user = User::create($request->all());
         $user->update(['password'=> Hash::make($request->password)]);
         //$user->roles()->sync($request->get('roles'));
@@ -43,8 +45,15 @@ class UserController extends Controller
         $user = User::create($request->all());
         $user->update(['password'=> Hash::make($request->password)]);
         //$user->roles()->sync($request->get('roles'));
+        Auth::login($user);
         $user->roles()->sync(1);
-        return redirect()->route('login');
+
+        if($user->type == 'Estudiante'){
+            return redirect()->route('providers.create');
+        }else{
+            return redirect()->route('categories.create');
+        }
+        
     }
 
     public function show(User $user)

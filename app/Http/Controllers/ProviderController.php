@@ -14,7 +14,6 @@ class ProviderController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('can:providers.create')->only(['create','store']);
         $this->middleware('can:providers.index')->only(['index']);
         $this->middleware('can:providers.edit')->only(['edit','update']);
         $this->middleware('can:providers.show')->only(['show']);
@@ -27,7 +26,7 @@ class ProviderController extends Controller
      */
     public function index()
     {
-        $providers = Provider::get();
+        $providers = Provider::Where('user_id',Auth::user()->id)->get();
         return view('admin.provider.index', compact('providers'));
     }
 

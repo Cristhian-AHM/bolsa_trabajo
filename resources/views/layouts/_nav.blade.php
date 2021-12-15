@@ -13,12 +13,14 @@
                 </div>
             </div>
         </li>
+        @if(Auth::user()->type == 'admin')
         <li class="nav-item">
             <a class="nav-link" href="{{route('home')}}">
                 <i class="fa fa-home menu-icon"></i>
                 <span class="menu-title">Dashboard</span>
             </a>
         </li>
+        @endif
         @if(Auth::user()->type == 'admin')
             <li class="nav-item">
                 <a class="nav-link" data-toggle="collapse" href="#page-layouts1" aria-expanded="false"
