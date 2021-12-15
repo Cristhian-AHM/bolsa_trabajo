@@ -189,7 +189,7 @@
                                 <div class="tab-pane fade" id="list-messages" user="tabpanel" aria-labelledby="list-messages-list">
                                     <div class="d-flex justify-content-between">
                                         <div>
-                                            <h4>Historial de Ofertas</h4>
+                                            <h4>Estatus de las postulaciones</h4>
                                         </div>
                                     </div>
                                     <div class="profile-feed">
@@ -204,6 +204,7 @@
                                                             <th>Fecha de aplicación</th>
                                                             <th>Salario</th>
                                                             <th>Duración</th>
+                                                            <th>Estado de la postulación</th>
                                                             <th>Estado</th>
                                                         </tr>
                                                     </thead>
@@ -231,6 +232,25 @@
                                                             <td>{{$offer->application_date}}</td>
                                                             <td>{{$offer->salary}}</td>
                                                             <td>{{$offer->duration}}</td>
+                                                            @if ($offer->status_offer == 'ACTIVE')
+                                                            <td>
+                                                                <a class="jsgrid-button btn btn-success" title="Editar">
+                                                                    Aceptado <i class="fas fa-check"></i>
+                                                                </a>
+                                                            </td>
+                                                            @elseif ($offer->status_offer == 'INACTIVE')
+                                                            <td>
+                                                                <a class="jsgrid-button btn btn-danger" title="Editar">
+                                                                    Rechazado <i class="fas fa-times"></i>
+                                                                </a>
+                                                            </td>
+                                                            @else
+                                                            <td>
+                                                                <a class="jsgrid-button btn btn-warning" title="Editar">
+                                                                    En Espera <i class="fas fa-times"></i>
+                                                                </a>
+                                                            </td>
+                                                            @endif
                         
                                                             @if ($offer->status == 'ACTIVE')
                                                             <td>
@@ -264,6 +284,8 @@
 
                             </div>
                         </div>
+
+                        
 
                         
 

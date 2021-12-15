@@ -53,6 +53,7 @@ Route::get('change_status/offers/{offer}', 'OfferController@change_status')->nam
 
 Route::get('purchases/pdf/{purchase}', 'PurchaseController@pdf')->name('purchases.pdf');
 Route::get('change_status/purchases/{purchase}', 'PurchaseController@change_status')->name('change.status.purchases');
+Route::get('change_status/purchaseDetails/{id}', 'PurchaseDetailsController@change_status')->name('change.status.purchaseDetail');
 Route::get('purchases/upload/{purchase}', 'PurchaseController@upload')->name('upload.purchases');
 
 Route::get('sales/pdf/{sale}', 'SaleController@pdf')->name('sales.pdf');

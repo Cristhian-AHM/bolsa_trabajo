@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class PurchaseDetails extends Model
 {
     protected $fillable = [
-        'offer_id', 'user_id', 'status', 'application_date',
+        'offer_id', 'user_id', 'status_offer', 'application_date',
     ];
 
     public function offer(){

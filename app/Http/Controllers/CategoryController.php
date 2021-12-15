@@ -68,23 +68,21 @@ class CategoryController extends Controller
     {
         //dd($category);
         $offers = $category->offers;
-
+        $applicants2 = [];
         $students = [];
         if(sizeof($offers) > 0){
             foreach($offers as $offer){
                 $applicants = PurchaseDetails::where('offer_id', $offer['id'])->get();
+                $applicants2[] = $applicants;
                 foreach($applicants as $applicant){
                     $students[] = Provider::where('user_id', $applicant['user_id'])->get();
                 }
-            //dd($applicants);
-            
-            }
-            
+            }   
         }
 
-        //dd($students);
+        //dd($applicants2);
         
-        return view('admin.category.show', compact('category', 'students'));
+        return view('admin.category.show', compact('category', 'students', 'applicants2'));
     }
 
     /**

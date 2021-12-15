@@ -50,7 +50,7 @@
                                     </a>
                                     <a type="button" class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list" href="#list-profile" user="tab" aria-controls="profile">Ofertas publicadas</a>
                                     <a type="button" class="list-group-item list-group-item-action" id="list-post-list" data-toggle="list" href="#list-post" user="tab" aria-controls="post">Alumnos postulados</a>
-
+                                    <a type="button" class="list-group-item list-group-item-action" id="list-post-list6" data-toggle="list" href="#list-post6" user="tab" aria-controls="post">Estatus de la oferta</a>
                                 </div>
                             </div>
                         </div>
@@ -226,6 +226,79 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+                                <div class="tab-pane fade" id="list-post6" user="tabpanel6" aria-labelledby="list-post-list">
+                                    
+                                    <div class="d-flex justify-content-between">
+                                        <div>
+                                            <h4>Estatus</h4>
+                                        </div>
+                                    </div>
+                                    <div class="profile-feed">
+                                        <div class="d-flex align-items-start profile-feed-item">
+        
+                                            <div class="table-responsive">
+                                                <table id="order-listing" class="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Oferta</th>
+                                                            <th>Estudiante</th>
+                                                            <th>Status</th>
+                                                            
+                                                         
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        
+                                                        @foreach ($applicants2 as $providers)
+                                                      @foreach($providers as $provider)
+                                   
+                                        <tr>
+                                            <th scope="row">
+                                                <a href="{{route('offers.show',$provider)}}">{{$provider->offer->name}}</a>
+                                            </th>
+                                            <td>{{$provider->user->name}}</td>
+                                            @if ($provider->status_offer == 'ACTIVE')
+                                                
+                                                            <td>
+                                                                <a class="jsgrid-button btn btn-success" href="{{route('change.status.purchaseDetail', $provider->id)}}" title="Editar">
+                                                                    Aceptado <i class="fas fa-check"></i>
+                                                                </a>
+                                                            </td>
+                                                            @elseif ($provider->status_offer == 'INACTIVE')
+                                                            <td>
+                                                                <a class="jsgrid-button btn btn-danger"  href="{{route('change.status.purchaseDetail', $provider->id)}}" title="Editar">
+                                                                    Rechazado <i class="fas fa-times"></i>
+                                                                </a>
+                                                            </td>
+                                                            @else
+                                                            <td>
+                                                                <a class="jsgrid-button btn btn-warning" href="{{route('change.status.purchaseDetail', $provider->id)}}" title="Editar">
+                                                                    En Espera <i class="fas fa-times"></i>
+                                                                </a>
+                                                            </td>
+                                                            @endif
+
+                                            
+                                            
+                                        </tr>
+                     
+                                        @endforeach
+                                @endforeach
+                                                    </tbody>
+                                                    <tfoot>
+                                                        <tr>     
+                                                        </tr>
+                                                    </tfoot>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
                             </div>
                         </div>
                     </div>

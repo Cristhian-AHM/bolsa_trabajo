@@ -93,4 +93,15 @@ class PurchaseDetailsController extends Controller
     {
         //
     }
+    public function change_status($id){
+        $offer = PurchaseDetails::where('id', $id)->get();
+
+        if ($offer[0]->status_offer == 'ACTIVE') {
+            $offer[0]->update(['status_offer'=>'INACTIVE']);
+            return redirect()->back();
+        } else {
+            $offer[0]->update(['status_offer'=>'ACTIVE']);
+            return redirect()->back();
+        } 
+    }
 }

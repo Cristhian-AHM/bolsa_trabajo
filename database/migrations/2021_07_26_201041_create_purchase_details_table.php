@@ -23,7 +23,7 @@ class CreatePurchaseDetailsTable extends Migration
 
             $table->dateTime('application_date');
 
-            $table->enum('status', ['ACTIVE', 'INACTIVE', 'WAITING'])->default('INACTIVE');
+            $table->enum('status_offer', ['ACTIVE', 'INACTIVE', 'WAITING'])->default('WAITING');
             
             $table->timestamps();
         });
